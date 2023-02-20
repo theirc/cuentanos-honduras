@@ -22,6 +22,7 @@ import {
   getTranslationsFromDynamicContent,
 } from '@ircsignpost/signpost-base/dist/src/zendesk';
 import { GetStaticProps } from 'next';
+import getConfig from 'next/config';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -87,6 +88,7 @@ export default function Article({
   footerLinks,
 }: ArticleProps) {
   const router = useRouter();
+  const { publicRuntimeConfig } = getConfig();
 
   return (
     <ArticlePage
@@ -123,6 +125,7 @@ export default function Article({
             locales={LOCALES}
             strings={strings.footerStrings}
             links={footerLinks}
+            signpostVersion={publicRuntimeConfig?.version}
           />
         ),
         layoutDirection: locale.direction,

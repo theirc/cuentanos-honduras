@@ -12,6 +12,7 @@ import {
   getTranslationsFromDynamicContent,
 } from '@ircsignpost/signpost-base/dist/src/zendesk';
 import { GetStaticProps } from 'next';
+import getConfig from 'next/config';
 
 import {
   ABOUT_US_ARTICLE_ID,
@@ -58,6 +59,8 @@ export default function Custom404({
   menuOverlayItems,
   footerLinks,
 }: Custom404Props) {
+  const { publicRuntimeConfig } = getConfig();
+
   return (
     <Custom404Page
       currentLocale={currentLocale}
@@ -68,6 +71,7 @@ export default function Custom404({
       headerLogoProps={getHeaderLogoProps(currentLocale)}
       searchBarIndex={SEARCH_BAR_INDEX}
       footerLinks={footerLinks}
+      signpostVersion={publicRuntimeConfig?.version}
       cookieBanner={
         <CookieBanner
           strings={strings.cookieBannerStrings}
