@@ -86,7 +86,7 @@ export default function SearchResultsPage({
         5828841422109, 5828803210013, 5828885953565, 5889406132509,
         5889318172829,
       ]}
-      servicesFilter={[7643052348701]}
+      servicesFilter={[1]}
       footerLinks={footerLinks}
       signpostVersion={publicRuntimeConfig?.version}
       cookieBanner={
